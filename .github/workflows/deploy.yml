@@ -36,4 +36,4 @@ jobs:
         run: cd /var/www/$repository_name ; ls -al
 
       - name: Purging unwanted data
-        run: rm -rf /var/www/$repository_name.git/_work
+        run: rm -rf /var/www/$repository_name.git/_work/$repository_name
