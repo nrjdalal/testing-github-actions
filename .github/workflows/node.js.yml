@@ -27,8 +27,8 @@ jobs:
       # - run: npm i
       # - run: mkdir -p /var/www/${{ github.event.repository.name }}
 
-      - name: github object
-        run: echo "${{ toJSON(github) }}"
+      - name: ${{ toJSON(github) }}
+        # run: echo "${{ toJSON(github) }}"
       - name: env object
         run: echo "${{ toJSON(env) }}"
       - name: job object
