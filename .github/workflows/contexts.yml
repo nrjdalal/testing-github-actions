@@ -1,0 +1,31 @@
+name: contexts
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: ${{ toJSON(github) }}
+        run: echo "${{ toJSON(github) }}"
+      - name: env object
+        run: echo "${{ toJSON(env) }}"
+      - name: job object
+        run: echo "{{ toJSON(job) }}"
+      - name: steps object
+        run: echo "{{ toJSON(steps) }}"
+      - name: runner object
+        run: echo "{{ toJSON(runner) }}"
+      - name: secrets object
+        run: echo "{{ toJSON(secrets) }}"
+      - name: strategy object
+        run: echo "{{ toJSON(strategy) }}"
+      - name: matrix object
+        run: echo "{{ toJSON(matrix) }}"
+      - name: needs object
+        run: echo "{{ toJSON(needs) }}"
