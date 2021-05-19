@@ -27,9 +27,6 @@ jobs:
       - run: npm i
       - run: mkdir -p /var/www/${{ github.event.repository.name }}
 
-jobs:
-  info:
-    runs-on: self-hosted
     steps:
       - name: Dump GitHub context
         env:
