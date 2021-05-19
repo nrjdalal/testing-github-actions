@@ -15,7 +15,6 @@ jobs:
 
     defaults:
       run:
-        shell: bash
         working-directory: /var/www/${{ github.event.repository.name }}/magic
 
     steps:
