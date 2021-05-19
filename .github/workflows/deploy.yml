@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Creating build folder
-        run: mkdir nrjdalal
+        run: mkdir -p nrjdalal
         working-directory: /var/www/f3GnIm.git/aloha
 
       - run: npm init -y
