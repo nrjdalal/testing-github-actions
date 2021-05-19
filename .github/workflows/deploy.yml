@@ -23,10 +23,17 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
       - run: npm i
 
-      - name: Purging previous folder
+      - name: Purging previous push
         run: rm -rf /var/www/$repository_name
 
-      - name: Copying new folder data
+      - name: Acivating clean push
         run: cp -r /var/www/$repository_name.git/_work/$repository_name/$repository_name /var/www/$repository_name
+
+      - name: Purging unwanted data
+        run: rm -rf /var/www/$repository_name.git/_work
+
+      - name: Listing deployed data
+        run: cd /var/www/$repository_name ; ls -al
