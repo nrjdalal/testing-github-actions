@@ -19,35 +19,29 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i
-      - run: mkdir -p /var/www/${{ github.event.repository.name }}
+      # - uses: actions/checkout@v2
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      # - run: npm i
+      # - run: mkdir -p /var/www/${{ github.event.repository.name }}
 
-      - name: GitHub Context
+      - name: github object
         run: echo "${{ toJSON(github) }}"
-
-      - name: Env Context
-        env:
-          JOB_CONTEXT: ${{ toJSON(env) }}
-        run: echo "$JOB_CONTEXT"
-
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJSON(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJSON(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
+      - name: env object
+        run: echo "${{ toJSON(env) }}"
+      - name: job object
+        run: echo "{{ toJSON(job) }}"
+      - name: steps object
+        run: echo "{{ toJSON(steps) }}"
+      - name: runner object
+        run: echo "{{ toJSON(runner) }}"
+      - name: secrets object
+        run: echo "{{ toJSON(secrets) }}"
+      - name: strategy object
+        run: echo "{{ toJSON(strategy) }}"
+      - name: matrix object
+        run: echo "{{ toJSON(matrix) }}"
+      - name: needs object
+        run: echo "{{ toJSON(needs) }}"
