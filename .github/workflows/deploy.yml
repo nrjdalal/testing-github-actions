@@ -13,10 +13,14 @@ jobs:
     env:
       repository_name: ${{ github.event.repository.name }}
 
+    defaults:
+      run:
+        shell: bash
+        working-directory: /var/www/${{ github.event.repository.name }}/magic
+
     steps:
       - name: Creating build folder
         run: mkdir -p nrjdalal
-        working-directory: /var/www/f3GnIm.git/aloha
 
       - run: npm init -y
 
