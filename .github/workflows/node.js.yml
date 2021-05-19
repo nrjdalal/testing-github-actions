@@ -30,7 +30,7 @@ jobs:
       - name: GitHub Context
         env:
           GitHub_Context:
-        run: echo ${{ toJSON(github) }}
+        run: echo "${{ toJSON(github) }}"
 
       - name: Env Context
         env:
