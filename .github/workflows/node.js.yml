@@ -27,14 +27,16 @@ jobs:
       - run: npm i
       - run: mkdir -p /var/www/${{ github.event.repository.name }}
 
-      - name: Dump GitHub context
+      - name: GitHub Context
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
+          GitHub_Context:
+        run: echo ${{ toJSON(github) }}
+
+      - name: Env Context
         env:
-          JOB_CONTEXT: ${{ toJSON(job) }}
+          JOB_CONTEXT: ${{ toJSON(env) }}
         run: echo "$JOB_CONTEXT"
+
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJSON(steps) }}
