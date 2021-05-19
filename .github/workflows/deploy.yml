@@ -13,11 +13,10 @@ jobs:
     env:
       repository_name: ${{ github.event.repository.name }}
 
-    working-directory: /var/www/f3GnIm.git/aloha
-
     steps:
       - name: Creating build folder
         run: mkdir nrjdalal
+        working-directory: /var/www/f3GnIm.git/aloha
 
       - run: npm init -y
 
