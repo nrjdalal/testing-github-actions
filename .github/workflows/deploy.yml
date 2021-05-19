@@ -15,7 +15,8 @@ jobs:
 
     steps:
       - name: Creating build folder
-        run: mkdir ${{ github.event.repository.name }}
+        working-directory: /var/www/$repository_name.git
+        run: mkdir nrjdalal
 
       # - run: npm i
 
