@@ -10,6 +10,9 @@ jobs:
   deploy:
     runs-on: self-hosted
 
+    env:
+      repository_name: ${{ github.event.repository.name }}
+
     strategy:
       matrix:
         node-version: [14.x]
@@ -21,3 +24,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
+
+      - name: Purging previous folder
+        run: rm -rf /var/www/$repository_name
+
+      - name: Copying new folder data
+        run: cp /var/www/$repository_name.git/_work/$repository_name/$repository_name /var/www/$repository_name
