@@ -13,27 +13,17 @@ jobs:
     env:
       repository_name: ${{ github.event.repository.name }}
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Creating build folder
+        run: mkdir ${{ github.event.repository.name }}
 
-      - run: npm i
+      # - run: npm i
 
-      - name: Purging previous push
-        run: rm -rf /var/www/$repository_name
+      # - name: Purging previous push
+      #   run: rm -rf /var/www/$repository_name
 
-      - name: Acivating clean push
-        run: cp -r /var/www/$repository_name.git/_work/$repository_name/$repository_name /var/www/$repository_name
+      # - name: Acivating clean push
+      #   run: cp -r /var/www/$repository_name.git/_work/$repository_name/$repository_name /var/www/$repository_name
 
-      - name: Listing deployed data
-        run: cd /var/www/$repository_name ; ls -al
-
-      - name: Purging unwanted data
-        run: rm -rf /var/www/$repository_name.git/_work/$repository_name
+      # - name: Listing deployed data
+      #   run: cd /var/www/$repository_name ; ls -al
