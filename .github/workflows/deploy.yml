@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: /var/www/${{ github.event.repository.name }}/magic
+        working-directory: /var/www/${{ github.event.repository.name }}.git/magic
 
     steps:
       - name: Creating build folder
