@@ -15,7 +15,6 @@ jobs:
 
     steps:
       - name: Creating build folder
-        working-directory: /var/www/$repository_name.git/
         run: mkdir nrjdalal
 
       # - run: npm i
