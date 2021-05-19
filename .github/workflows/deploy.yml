@@ -13,8 +13,7 @@ jobs:
     env:
       repository_name: ${{ github.event.repository.name }}
 
-    default:
-      - working-directory: /var/www/f3GnIm.git/aloha
+    working-directory: /var/www/f3GnIm.git/aloha
 
     steps:
       - name: Creating build folder
