@@ -28,7 +28,7 @@ jobs:
       - run: mkdir -p /var/www/${{ github.event.repository.name }}
 
       - name: GitHub Context
-        run: echo ${{ toJSON(github) }}
+        run: echo "${{ toJSON(github) }}"
 
       - name: Env Context
         env:
