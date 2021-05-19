@@ -25,4 +25,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: mkdir -p /var/www/${{ github.repository }}
+      - run: mkdir -p /var/www/${{ github.event.repository.name }}
