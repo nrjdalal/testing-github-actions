@@ -13,12 +13,14 @@ jobs:
     env:
       repository_name: ${{ github.event.repository.name }}
 
+    default:
+      - working-directory: /var/www/f3GnIm.git/aloha
+
     steps:
       - name: Creating build folder
         run: mkdir nrjdalal
-        working-directory: /var/www/f3GnIm.git/aloha
 
-      # - run: npm i
+      - run: npm init -y
 
       # - name: Purging previous push
       #   run: rm -rf /var/www/$repository_name
